@@ -3,342 +3,336 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The $39 Anonymous Author: How to Publish Without Doxxing Yourself | Compte.app</title>
-    <meta name="description" content="The definitive guide for authors to secure privacy using a $39 LLC setup. Stop overpaying for legal protection.">
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;700;900&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <title>The $39 Anonymous LLC Strategy | Compte.app</title>
+    <meta name="description" content="The definitive guide for authors and entrepreneurs to secure privacy. Master your business accounts with Compte.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    
     <style>
-        /* ARTISTIC & MODERN CSS VARIABLES */
+        /* === GLOBAL VARIABLES === */
         :root {
-            --font-heading: 'Merriweather', serif;
-            --font-body: 'Inter', sans-serif;
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Inter', sans-serif;
             
-            --color-ink: #1a1a1a; /* Soft Black */
-            --color-paper: #fcfcfc; /* Off-white background */
-            --color-accent: #c29e4c; /* Muted Gold for sophisticated accents */
-            --color-primary: #2a4f6c; /* Deep editorial blue */
-            --color-success: #059669;
-            --color-danger: #dc2626;
+            --color-black: #111111;
+            --color-paper: #f9f9f9;
+            --color-white: #ffffff;
+            --color-accent: #D4AF37; /* "Swiss Bank" Gold */
+            --color-link: #2563eb;
+            --color-border: #e5e5e5;
             
-            --section-gap: 4rem;
-            --max-width: 740px; /* Tight editorial width for readability */
+            --max-w-article: 720px;
+            --max-w-header: 1100px;
         }
 
-        /* RESET & BASE STYLES */
+        /* === RESET & BASE === */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
             background-color: var(--color-paper);
-            color: var(--color-ink);
-            font-family: var(--font-body);
-            line-height: 1.7;
-            font-size: 18px; /* Slightly larger for modern readability */
+            color: var(--color-black);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            font-size: 18px;
             -webkit-font-smoothing: antialiased;
         }
 
-        /* NAVIGATION (Simple & Clean) */
-        nav {
+        /* === MAGZINE HEADER (The Compte Brand) === */
+        header {
+            background: var(--color-white);
+            border-bottom: 1px solid var(--color-border);
             padding: 1.5rem 0;
-            text-align: center;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
-        .logo {
-            font-family: var(--font-heading);
+        
+        .header-inner {
+            max-width: var(--max-w-header);
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand {
+            font-family: var(--font-sans);
             font-weight: 900;
             font-size: 1.5rem;
-            letter-spacing: -0.5px;
-            color: var(--color-ink);
-            text-decoration: none;
-        }
-        .logo span { color: var(--color-accent); }
-
-        /* ARTICLE CONTAINER */
-        article {
-            max-width: var(--max-w);
-            margin: 0 auto;
-            padding: 0 1.5rem 6rem;
-        }
-
-        /* HERO SECTION & TYPOGRAPHY */
-        .hero-image-container {
-            margin: 3rem auto 2rem;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-        }
-        .hero-image {
-            width: 100%;
-            height: auto;
-            display: block;
-            background-color: #e5e7eb; /* Placeholder color */
-        }
-
-        h1 {
-            font-family: var(--font-heading);
-            font-weight: 900;
-            font-size: 3rem;
-            line-height: 1.1;
             letter-spacing: -1px;
-            margin-bottom: 1rem;
-            color: var(--color-ink);
-        }
-
-        .meta {
-            font-family: var(--font-body);
-            font-size: 0.9rem;
-            color: #666;
-            margin-bottom: 2.5rem;
+            text-transform: lowercase;
+            text-decoration: none;
+            color: var(--color-black);
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 8px;
         }
-        .meta-tag {
-            background: var(--color-primary);
-            color: white;
-            padding: 3px 10px;
-            border-radius: 100px;
+        .brand span { color: var(--color-accent); font-size: 2rem; line-height: 0; }
+        
+        /* Future-Proof Navigation */
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            font-size: 0.85rem;
             font-weight: 600;
-            font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
+        .nav-links a { color: #666; text-decoration: none; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--color-black); }
+        .nav-links a.active { color: var(--color-black); border-bottom: 2px solid var(--color-accent); }
 
-        /* BODY CONTENT STYLES */
-        h2 {
-            font-family: var(--font-heading);
+        /* Mobile Nav Toggle */
+        .menu-toggle { display: none; cursor: pointer; font-size: 1.5rem; }
+
+        /* === ARTICLE LAYOUT === */
+        article {
+            max-width: var(--max-w-article);
+            margin: 4rem auto 6rem;
+            padding: 0 1.5rem;
+        }
+
+        .category-tag {
+            font-family: var(--font-sans);
+            font-size: 0.75rem;
             font-weight: 700;
-            font-size: 2rem;
-            margin-top: var(--section-gap);
-            margin-bottom: 1rem;
-            letter-spacing: -0.5px;
-        }
-
-        p { margin-bottom: 1.5rem; }
-        
-        .lede {
-            font-size: 1.25rem;
-            font-weight: 400;
-            color: #444;
-            margin-bottom: 2rem;
-        }
-
-        a {
-            color: var(--color-primary);
-            text-decoration: none;
-            border-bottom: 2px solid rgba(42, 79, 108, 0.3);
-            transition: border-color 0.2s;
-        }
-        a:hover { border-color: var(--color-primary); }
-
-        /* THE ARTISTIC COMPARISON TABLE */
-        .comparison-wrapper {
-            margin: 4rem 0;
-            border-radius: 16px;
-            background: white;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.06);
-            overflow: hidden;
-            border: 1px solid rgba(0,0,0,0.04);
-        }
-
-        .comp-header {
-            text-align: center;
-            padding: 2rem;
-            background: linear-gradient(to bottom, #fff, #f9fafb);
-            border-bottom: 1px solid #eee;
-        }
-        .comp-header h3 {
-            font-family: var(--font-heading);
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .comp-grid {
-            display: grid;
-            grid-template-columns: 1.2fr 1fr 1fr;
-        }
-
-        .comp-col {
-            padding: 1.5rem;
-            text-align: center;
-            border-right: 1px solid #eee;
-        }
-        .comp-col:last-child { border-right: none; }
-        .comp-col.feature-labels {
-            text-align: left;
-            font-weight: 600;
-            color: #555;
-            background: #fcfcfc;
-        }
-        
-        /* Highlighting the Winner */
-        .comp-col.winner {
-            background: #f0fdf4; /* Very subtle green tint */
-            position: relative;
-        }
-        .comp-col.winner::before {
-            content: 'Editor’s Choice';
-            position: absolute;
-            top: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--color-success);
-            color: white;
-            font-size: 0.7rem;
-            font-weight: 700;
+            letter-spacing: 1px;
             text-transform: uppercase;
-            padding: 4px 10px;
-            border-radius: 100px;
+            color: var(--color-accent);
+            margin-bottom: 1rem;
+            display: block;
         }
-        .winner-title { color: var(--color-success); font-weight: 800; font-size: 1.1rem; }
-        .loser-title { color: #888; font-weight: 600; }
 
-        .comp-row {
-            padding: 1rem 0;
-            border-bottom: 1px solid #f0f0f0;
-            font-size: 0.95rem;
+        h1 {
+            font-family: var(--font-serif);
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: var(--color-black);
         }
-        .comp-row:last-child { border-bottom: none; }
+
+        .lede {
+            font-family: var(--font-serif);
+            font-size: 1.35rem;
+            line-height: 1.5;
+            color: #444;
+            font-style: italic;
+            margin-bottom: 2rem;
+            border-left: 3px solid var(--color-accent);
+            padding-left: 1.5rem;
+        }
+
+        /* HERO IMAGE FRAME */
+        .hero-frame {
+            width: 100%;
+            height: auto;
+            margin-bottom: 3rem;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.15);
+        }
+        .hero-frame img { width: 100%; display: block; }
+
+        /* BODY TYPOGRAPHY */
+        h2 {
+            font-family: var(--font-sans);
+            font-size: 1.75rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-top: 3.5rem;
+            margin-bottom: 1rem;
+        }
         
-        .price-tag { font-family: var(--font-heading); font-weight: 900; font-size: 1.4rem; color: var(--color-ink); }
-        .check { color: var(--color-success); }
-        .cross { color: var(--color-danger); }
-        .sub-text { display: block; font-size: 0.8rem; color: #888; margin-top: 4px;}
-
-        /* CTA BUTTON */
-        .cta-container {
-            text-align: center;
-            padding: 2.5rem;
-            background: #f0fdf4;
-            border-top: 1px solid #dcfce7;
+        p { margin-bottom: 1.5rem; color: #333; }
+        
+        a.text-link {
+            color: var(--color-black);
+            text-decoration: underline;
+            text-decoration-color: var(--color-accent);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 3px;
         }
-        .btn-artistic {
-            display: inline-block;
-            background: var(--color-primary);
-            color: white;
-            font-family: var(--font-body);
-            font-weight: 700;
-            padding: 1.1rem 2.5rem;
+        a.text-link:hover { background-color: #fff8e1; }
+
+        /* === THE "SWISS BANK" TABLE === */
+        .table-container {
+            margin: 3rem -2rem;
+            background: white;
+            border: 1px solid var(--color-border);
             border-radius: 8px;
-            text-decoration: none;
-            border: none;
-            box-shadow: 0 10px 20px -5px rgba(42, 79, 108, 0.4);
-            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            overflow: hidden;
         }
-        .btn-artistic:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 30px -5px rgba(42, 79, 108, 0.5);
+        
+        .row {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .row:last-child { border-bottom: none; }
+        
+        .cell { padding: 1.25rem; font-size: 0.95rem; display: flex; align-items: center; }
+        .cell.head { font-weight: 600; color: #666; background: #fafafa; }
+        
+        /* The Winner Column */
+        .cell.winner { 
+            background: #fdfdfd; 
+            font-weight: 700; 
+            color: var(--color-black); 
+            position: relative;
+            border-left: 1px solid #eee;
+        }
+        .cell.loser { color: #999; text-decoration: line-through; }
+        
+        .badge {
+            position: absolute;
+            top: 0; right: 0;
+            background: var(--color-accent);
+            color: white;
+            font-size: 0.6rem;
+            padding: 2px 6px;
+            text-transform: uppercase;
+            font-weight: 700;
         }
 
-        /* FOOTER */
-        footer {
+        /* === CTA SECTION === */
+        .cta-box {
+            background: var(--color-black);
+            color: white;
+            padding: 3rem;
             text-align: center;
-            padding: 3rem 0;
-            margin-top: 4rem;
-            border-top: 1px solid rgba(0,0,0,0.05);
+            border-radius: 4px;
+            margin: 4rem 0;
+        }
+        .cta-box h3 { font-family: var(--font-serif); font-size: 2rem; margin-bottom: 1rem; }
+        .btn-gold {
+            display: inline-block;
+            background: var(--color-accent);
+            color: white;
+            padding: 1rem 2.5rem;
+            font-weight: 700;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 1rem;
+            transition: all 0.2s;
+        }
+        .btn-gold:hover { background: #bfa34a; transform: translateY(-2px); }
+
+        /* === FOOTER (Expansion Ready) === */
+        footer {
+            background: white;
+            border-top: 1px solid var(--color-border);
+            padding: 4rem 0;
+            text-align: center;
             font-size: 0.9rem;
             color: #888;
         }
+        .footer-nav { margin-bottom: 2rem; }
+        .footer-nav a { margin: 0 10px; color: #555; text-decoration: none; }
 
-        /* MOBILE RESPONSIVENESS */
+        /* RESPONSIVE */
         @media (max-width: 768px) {
-            h1 { font-size: 2.25rem; }
-            .hero-image-container { border-radius: 0; margin-left: -1.5rem; margin-right: -1.5rem; }
-            .comp-grid { grid-template-columns: 1fr 1fr; }
-            /* Hide the middle competitor column on mobile to focus on the winner */
-            .comp-col:nth-child(2) { display: none; } 
-            .comp-grid { border-right: none; }
+            h1 { font-size: 2.5rem; }
+            .nav-links { display: none; } /* Hide menu on mobile for now */
+            .menu-toggle { display: block; }
+            .table-container { margin: 2rem 0; overflow-x: auto; }
+            .row { min-width: 500px; } /* Allows scroll on small phones */
         }
     </style>
 </head>
 <body>
 
-<nav>
-    <a href="#" class="logo">compte<span>.app</span></a>
-</nav>
+<header>
+    <div class="header-inner">
+        <a href="#" class="brand"><span>.</span>compte</a>
+        
+        <nav class="nav-links">
+            <a href="#" class="active">Business</a>
+            <a href="#">Marketing</a>
+            <a href="#">Betting</a>
+            <a href="#">Tools</a>
+        </nav>
+        
+        <div class="menu-toggle">☰</div>
+    </div>
+</header>
 
 <article>
-    <header>
-        <div class="hero-image-container">
-            <img src="hero-image.jpg" alt="Artistic illustration of author privacy and security" class="hero-image" width="1200" height="675">
-        </div>
+    <span class="category-tag">Strategy / Asset Protection</span>
+    
+    <h1>The $39 Anonymous Author: How to Publish Without Doxxing Yourself</h1>
+    
+    <div class="lede">
+        "If you don't control your privacy, you don't control your business. Here is the $39 loophole that keeps your home address off government records."
+    </div>
 
-        <div class="meta">
-            <span class="meta-tag">Privacy Guide</span>
-            <span>Updated February 2026</span>
-        </div>
-        <h1>The $39 Anonymous Author: How to Publish Without Doxxing Yourself</h1>
-        <p class="lede">Reality Check: If you self-publish using your own name, your home address is likely on a public government database right now. Here is the fastest, cheapest way to fix it.</p>
-    </header>
-
-    <hr style="border: 0; height: 1px; background: rgba(0,0,0,0.08); margin: 2rem 0 4rem;">
+    <div class="hero-frame">
+        <img src="hero.jpg" alt="Privacy Shield Concept Art" width="1200" height="600">
+    </div>
 
     <p>Writing a book is the dream. Having a disgruntled reader or internet troll show up at your front door is the nightmare.</p>
     
     <p>Most first-time authors make a critical mistake: they sign up for KDP (Kindle Direct Publishing) as a <em>Sole Proprietor</em>. It seems easiest, but in many states, this requires registering using your <strong>home address</strong>, which becomes a permanent public record.</p>
 
-    <h2>The Solution: The "Registered Agent" Shield</h2>
+    <h2>The "Registered Agent" Shield</h2>
     <p>You don't need an expensive lawyer to protect yourself. You just need an LLC that uses a <strong>Registered Agent</strong>.</p>
-    
     <p>A Registered Agent is a legal service that lets you use <em>their</em> commercial address on all your official paperwork. When the state (or the public) asks where you are located, they see the agent's address, not your home.</p>
 
-    <h2>The Insider Secret: The $39 Loophole</h2>
+    <h2>The Insider Secret: The $39 Deal</h2>
     <p>The self-publishing industry is full of overpriced services trying to scare you into paying $200+ for basic business setups. Companies like LegalZoom charge high filing fees and then upsell you on privacy.</p>
     
-    <p>However, there is one company—**Northwest Registered Agent**—that is known among professionals as the "Privacy-First" option. They currently offer an unpublished deal to file your LLC for just $39.</p>
+    <p>However, <strong>Northwest Registered Agent</strong> is known among professionals as the "Privacy-First" option. They currently offer an unpublished deal to file your LLC for just $39.</p>
 
-    <div class="comparison-wrapper">
-        <div class="comp-header">
-            <h3>The Privacy & Price Showdown</h3>
-            <p>Why the cheapest option is actually the safest.</p>
+    <div class="table-container">
+        <div class="row" style="background: #111; color: white;">
+            <div class="cell">Feature</div>
+            <div class="cell">LegalZoom</div>
+            <div class="cell winner" style="background: #222; color: white;">Northwest</div>
         </div>
-        <div class="comp-grid">
-            <div class="comp-col feature-labels">
-                <div class="comp-row" style="height: 60px; padding-top: 15px;">Price to Start</div>
-                <div class="comp-row">Hides Home Address?</div>
-                <div class="comp-row">Privacy Policy</div>
-                <div class="comp-row">Local Doc Scanning</div>
-            </div>
-            
-            <div class="comp-col">
-                <div class="comp-row" style="height: 60px;"><span class="loser-title">LegalZoom</span></div>
-                <div class="comp-row"><span class="price-tag">$149+</span><span class="sub-text">+ State Fees</span></div>
-                <div class="comp-row"><span class="cross">Extra Cost</span><span class="sub-text">($249/yr add-on)</span></div>
-                <div class="comp-row"><span class="cross">Sells Data</span><span class="sub-text">Known for upsells</span></div>
-                <div class="comp-row"><span class="cross">No</span></div>
-            </div>
-
-            <div class="comp-col winner">
-                <div class="comp-row" style="height: 60px;"><span class="winner-title">Northwest</span></div>
-                <div class="comp-row"><span class="price-tag" style="color:var(--color-success)">$39</span><span class="sub-text">+ State Fees</span></div>
-                <div class="comp-row"><span class="check">INCLUDED Free</span><span class="sub-text">(1st year)</span></div>
-                <div class="comp-row"><span class="check">Strict Privacy</span><span class="sub-text">Never sells data</span></div>
-                <div class="comp-row"><span class="check">YES</span><span class="sub-text">Premium security</span></div>
-            </div>
+        <div class="row">
+            <div class="cell head">Price to Start</div>
+            <div class="cell">$149 + Fees</div>
+            <div class="cell winner">$39 + Fees <span class="badge">Deal</span></div>
         </div>
-
-        <div class="cta-container">
-            <h3 style="font-family: var(--font-heading); margin-bottom: 1rem;">Secure Your Privacy for $39</h3>
-            <p style="margin-bottom: 2rem; color: #666;">Use the link below to access the special $39 filing deal that includes the Registered Agent privacy shield free for the first year.</p>
-            
-            <a href="YOUR_NORTHWEST_AFFILIATE_LINK_HERE" class="btn-artistic" target="_blank" rel="nofollow sponsored">Get the $39 Privacy Package &rarr;</a>
-            
-            <p style="font-size: 0.8rem; color: #999; margin-top: 1.5rem;">Transparency: We may earn a commission if you use this link, which helps keep our guides free. The price to you is the same.</p>
+        <div class="row">
+            <div class="cell head">Hides Address?</div>
+            <div class="cell loser">No ($249 extra)</div>
+            <div class="cell winner">YES (Included)</div>
+        </div>
+        <div class="row">
+            <div class="cell head">Data Policy</div>
+            <div class="cell loser">Sells Data</div>
+            <div class="cell winner">Strict Privacy</div>
         </div>
     </div>
 
-    <h2>How to Claim the $39 Deal Correctly</h2>
+    <h2>How to Claim the Deal</h2>
     <p>It is vital that you set this up correctly during checkout to ensure your address is actually hidden.</p>
-    <ol style="margin-left: 1.5rem; margin-bottom: 2rem; font-size: 1.05rem; color: var(--color-ink);">
-        <li style="margin-bottom: 1.2rem;"><strong>Click the button above</strong> to ensure you are on the $39 special offer page (not their standard pricing page).</li>
-        <li style="margin-bottom: 1.2rem;"><strong>Choose Your State:</strong> Select the state where you live.</li>
-        <li style="margin-bottom: 1.2rem;"><strong>Crucial Step:</strong> During the address section, ensure the option to <strong>"Use our address"</strong> (Registered Agent address) is selected. This is the shield that keeps your home off the records.</li>
+    
+    <ol style="margin-left: 1.5rem; margin-bottom: 2rem; font-family: var(--font-serif); font-size: 1.1rem; color: #444;">
+        <li style="margin-bottom: 1rem;"><strong>Click the button below</strong> to load the $39 offer.</li>
+        <li style="margin-bottom: 1rem;"><strong>Select Your State:</strong> Choose where you live.</li>
+        <li style="margin-bottom: 1rem;"><strong>The Shield:</strong> Ensure "Use our address" is selected.</li>
     </ol>
 
-    <p>Once filed, you can publish with peace of mind, knowing your public author persona is legally separated from your private life.</p>
+    <div class="cta-box">
+        <h3>Secure Your Privacy Today</h3>
+        <p>Don't wait until you are doxxed to fix this.</p>
+        
+        <a href="YOUR_NORTHWEST_AFFILIATE_LINK_HERE" class="btn-gold" target="_blank" rel="nofollow sponsored">Get the $39 Privacy Package</a>
+    </div>
 
 </article>
 
 <footer>
-    <p>&copy; 2026 Compte.app. Editorial independence guaranteed.</p>
+    <div class="footer-nav">
+        <a href="#">About Compte</a>
+        <a href="#">Editorial Policy</a>
+        <a href="#">Contact</a>
+    </div>
+    <p>&copy; 2026 Compte.app. Make It Count.</p>
 </footer>
 
 </body>
