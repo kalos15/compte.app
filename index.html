@@ -3,26 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Trust Stack: Engineering Credibility for New Brands | Compte.app</title>
-    <meta name="description" content="A founder's guide to building digital trust. The infrastructure, tools, and psychology that turn skeptical visitors into loyal users.">
+    <title>The Trust Protocol: Engineering Brand Equity | Compte.app</title>
+    <meta name="description" content="A technical deep-dive into building digital trust. How to engineer a brand presence that converts cold traffic into users.">
     
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     
     <style>
-        /* === MODERN TECH VARIABLES === */
+        /* === SYSTEM VARIABLES === */
         :root {
-            --font-main: 'Plus Jakarta Sans', sans-serif;
+            /* Palette: "Midnight Void" */
+            --bg-body: #050505;
+            --bg-panel: #0A0A0A;
+            --bg-card: #111111;
             
-            /* Dark Theme Palette */
-            --bg-body: #0B0F19; /* Deepest Navy */
-            --bg-card: #151A2D;
-            --text-primary: #F1F5F9;
-            --text-secondary: #94A3B8;
-            --accent-glow: #38BDF8; /* Electric Blue */
-            --accent-solid: #0EA5E9;
-            --border-color: rgba(255, 255, 255, 0.08);
+            --text-primary: #EDEDED;
+            --text-secondary: #A1A1A1;
+            --text-tertiary: #555555;
             
-            --max-w: 720px;
+            --brand-core: #ffffff;
+            --brand-glow: rgba(255, 255, 255, 0.15);
+            --accent-blue: #3B82F6;
+            --accent-cyan: #22d3ee;
+            
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --border-active: rgba(255, 255, 255, 0.2);
+            
+            --font-ui: 'Inter', -apple-system, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+            
+            --max-width: 680px; /* Tight column for high readability */
         }
 
         /* === RESET & BASE === */
@@ -31,248 +40,303 @@
         body {
             background-color: var(--bg-body);
             color: var(--text-primary);
-            font-family: var(--font-main);
-            line-height: 1.8;
-            font-size: 1.125rem; /* 18px for readability */
+            font-family: var(--font-ui);
+            line-height: 1.6;
+            font-size: 16px;
             -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        /* === GRADIENT MESH BACKGROUND === */
+        .ambient-light {
+            position: fixed;
+            top: -20%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1000px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, rgba(0,0,0,0) 60%);
+            z-index: -1;
+            pointer-events: none;
         }
 
         /* === NAVIGATION === */
         nav {
-            padding: 1.5rem 0;
-            border-bottom: 1px solid var(--border-color);
-            position: sticky;
-            top: 0;
-            background: rgba(11, 15, 25, 0.8);
-            backdrop-filter: blur(12px);
-            z-index: 100;
-        }
-        .nav-inner {
-            max-width: var(--max-w);
-            margin: 0 auto;
-            padding: 0 1.5rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 2rem 2rem;
+            border-bottom: 1px solid var(--border-subtle);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 50;
         }
         .logo {
-            font-weight: 800;
-            font-size: 1.25rem;
-            letter-spacing: -0.5px;
-            color: white;
+            font-family: var(--font-mono);
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: var(--text-primary);
             text-decoration: none;
+            letter-spacing: -0.5px;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
         }
-        .logo-dot {
-            width: 8px; height: 8px;
-            background: var(--accent-glow);
-            border-radius: 50%;
-            box-shadow: 0 0 12px var(--accent-glow);
+        .logo::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--text-primary);
+            box-shadow: 0 0 10px rgba(255,255,255,0.5);
         }
 
-        /* === ARTICLE HERO === */
-        header {
-            max-width: var(--max-w);
-            margin: 5rem auto 3rem;
+        /* === TYPOGRAPHY & LAYOUT === */
+        main {
+            max-width: var(--max-width);
+            margin: 6rem auto 8rem;
             padding: 0 1.5rem;
-        }
-        
-        .badge {
-            display: inline-block;
-            padding: 4px 12px;
-            border-radius: 100px;
-            background: rgba(56, 189, 248, 0.1);
-            color: var(--accent-glow);
-            font-size: 0.875rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            letter-spacing: 0.5px;
-            border: 1px solid rgba(56, 189, 248, 0.2);
         }
 
         h1 {
-            font-size: 3.5rem;
-            line-height: 1.1;
+            font-size: 3rem;
+            font-weight: 800;
             letter-spacing: -1.5px;
+            line-height: 1.1;
             margin-bottom: 1.5rem;
-            background: linear-gradient(to right, #fff, #94a3b8);
+            background: linear-gradient(180deg, #fff, #888);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .lede {
-            font-size: 1.35rem;
-            color: var(--text-secondary);
-            font-weight: 300;
-            line-height: 1.6;
-        }
-
-        /* === CONTENT BODY === */
-        article {
-            max-width: var(--max-w);
-            margin: 0 auto 6rem;
-            padding: 0 1.5rem;
+        .meta {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--text-tertiary);
+            margin-bottom: 3rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: flex;
+            gap: 1.5rem;
         }
 
         h2 {
-            font-size: 2rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: -0.5px;
             margin-top: 4rem;
             margin-bottom: 1rem;
-            letter-spacing: -0.5px;
+            color: var(--text-primary);
+        }
+
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 1.75rem;
+            font-size: 1.05rem;
+            line-height: 1.75;
+        }
+        
+        strong { color: var(--text-primary); font-weight: 600; }
+        
+        /* === TECHNICAL COMPONENTS === */
+        .code-block {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            padding: 1.5rem;
+            border-radius: 8px;
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--accent-cyan);
+            margin: 2rem 0;
+            overflow-x: auto;
+        }
+
+        /* === THE AFFILIATE "SYSTEM" CARD === */
+        .system-card {
+            margin: 4rem -2rem; /* Break out of container slightly */
+            background: linear-gradient(180deg, var(--bg-card), #050505);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 2.5rem;
+            position: relative;
+            box-shadow: 0 0 0 1px rgba(255,255,255,0.02), 0 20px 40px -10px rgba(0,0,0,0.5);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        
+        .system-card:hover {
+            border-color: var(--border-active);
+            transform: translateY(-2px);
+        }
+
+        /* Glowing Label */
+        .label-pill {
+            position: absolute;
+            top: -12px;
+            left: 2.5rem;
+            background: #000;
+            border: 1px solid var(--accent-blue);
+            color: var(--accent-blue);
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 100px;
+            text-transform: uppercase;
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
             color: white;
         }
-        
-        p { margin-bottom: 1.5rem; color: #cbd5e1; }
-        
-        strong { color: white; font-weight: 600; }
 
-        /* === THE GLASSMORPHISM CARD (Systeme.io) === */
-        .feature-card {
-            background: linear-gradient(145deg, rgba(21, 26, 45, 0.6), rgba(21, 26, 45, 0.3));
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 20px;
-            padding: 2.5rem;
-            margin: 3.5rem -1.5rem; /* Make it wider than text */
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.3);
-        }
-        
-        /* The glowing accent top border */
-        .feature-card::after {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 2px;
-            background: linear-gradient(90deg, transparent, var(--accent-glow), transparent);
-        }
-
-        .card-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 1.5rem;
-        }
-        .tool-name { font-size: 1.5rem; font-weight: 700; color: white; letter-spacing: -0.5px; }
-        .rating { color: #FBBF24; font-size: 0.9rem; font-weight: 600; }
-
-        .checklist {
+        .spec-list {
             list-style: none;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-            margin-bottom: 2rem;
+            margin-top: 1.5rem;
         }
-        .checklist li {
-            font-size: 0.95rem;
-            color: var(--text-secondary);
+        .spec-list li {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.75rem;
+            border-bottom: 1px solid rgba(255,255,255,0.03);
+            padding-bottom: 0.75rem;
         }
-        .check-icon { color: var(--accent-glow); }
+        .spec-list li:last-child { border: none; }
+        
+        .icon { color: var(--text-primary); }
 
         /* The Button */
-        .btn-tech {
-            display: block;
+        .btn-deploy {
+            display: flex;
+            align-items: center;
+            justify-content: center;
             width: 100%;
-            padding: 1.1rem;
-            background: var(--accent-solid);
-            color: white;
-            text-align: center;
+            padding: 1rem;
+            background: var(--text-primary);
+            color: #000;
+            font-weight: 600;
             text-decoration: none;
-            font-weight: 700;
-            border-radius: 12px;
-            transition: all 0.2s ease;
-            box-shadow: 0 0 20px rgba(14, 165, 233, 0.3);
+            border-radius: 6px;
+            transition: all 0.2s;
         }
-        .btn-tech:hover {
-            background: #38BDF8;
-            transform: translateY(-2px);
-            box-shadow: 0 0 30px rgba(14, 165, 233, 0.5);
-        }
-        .sub-text {
-            font-size: 0.85rem;
-            color: rgba(255,255,255,0.4);
-            text-align: center;
-            margin-top: 1rem;
+        .btn-deploy:hover {
+            background: #fff;
+            box-shadow: 0 0 20px rgba(255,255,255,0.3);
         }
 
         /* === FOOTER === */
         footer {
-            border-top: 1px solid var(--border-color);
-            padding: 4rem 0;
+            border-top: 1px solid var(--border-subtle);
+            padding: 3rem 0;
             text-align: center;
-            font-size: 0.9rem;
-            color: #475569;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--text-tertiary);
         }
-        .footer-brand { color: white; font-weight: 700; margin-bottom: 0.5rem; display: block; }
 
-        /* Mobile */
-        @media (max-width: 640px) {
-            h1 { font-size: 2.5rem; }
-            .feature-card { margin: 3rem 0; padding: 1.5rem; }
-            .checklist { grid-template-columns: 1fr; }
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.25rem; }
+            .system-card { margin: 3rem 0; padding: 1.5rem; }
+            .card-grid { grid-template-columns: 1fr; }
+            .label-pill { left: 1.5rem; }
         }
     </style>
 </head>
 <body>
 
+<div class="ambient-light"></div>
+
 <nav>
-    <div class="nav-inner">
-        <a href="#" class="logo"><div class="logo-dot"></div>compte.app</a>
-    </div>
+    <a href="#" class="logo">COMPTE.APP_</a>
+    <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-tertiary);">STATUS: ONLINE</div>
 </nav>
 
-<header>
-    <span class="badge">Founder's Guide 2026</span>
-    <h1>Trust is the Only Currency.</h1>
-    <p class="lede">New tech brands don't fail because of bad code. They fail because they look like ghosts. Here is the engineering approach to building a "Trust Stack" that converts.</p>
-</header>
-
-<article>
-    <p>You launch your product. The code is clean. The idea is brilliant. You post it online, and... <strong>silence.</strong></p>
-    <p>Why? Because in the digital world, "New" equals "Risky."</p>
-    <p>If your landing page is a generic template, or your emails come from a standard Gmail address, users assume you will be gone in a month. To survive, you need to look like a Series A startup from Day 1.</p>
-
-    <h2>The 3 Pillars of Digital Trust</h2>
-    <p>I have audited hundreds of tech launches. The ones that succeed always have three infrastructure layers in place:</p>
-    <ol style="margin-left: 1.5rem; margin-bottom: 2rem; color: #cbd5e1;">
-        <li style="margin-bottom: 1rem;"><strong>A "Home Base" Funnel:</strong> Not just a website, but a guided journey that looks professionally designed and loads instantly.</li>
-        <li style="margin-bottom: 1rem;"><strong>Consistent Value (Email):</strong> You must own your audience. Social media algorithms are rented land.</li>
-        <li style="margin-bottom: 1rem;"><strong>Automated Onboarding:</strong> When a user signs up, they expect an immediate, branded welcome email.</li>
-    </ol>
-
-    <h2>The Founder's Toolkit</h2>
-    <p>Most founders burn their budget on 5 different tools (Wix for site, Mailchimp for email, Teachable for courses). This costs $200/month and creates a fragmented "Trust Stack" because nothing connects properly.</p>
-    <p>The smarter play is to use an <strong>All-in-One Engine</strong>.</p>
-
-    <div class="feature-card">
-        <div class="card-header">
-            <span class="tool-name">Systeme.io</span>
-            <span class="rating">★★★★★ Editor's Choice</span>
-        </div>
-        <p style="color: #cbd5e1; font-size: 1rem;">The only tool that combines a website builder, email marketing, and automation in one dashboard. It allows a one-person team to operate with the polish of a corporation.</p>
-        
-        <ul class="checklist">
-            <li><span class="check-icon">✓</span> Free Forever Plan</li>
-            <li><span class="check-icon">✓</span> Enterprise-Grade Funnels</li>
-            <li><span class="check-icon">✓</span> Email Automation Included</li>
-            <li><span class="check-icon">✓</span> Instant Page Load Speeds</li>
-        </ul>
-
-        <a href="https://kaloskalos15.systeme.io/proxy/request/55205061669cd1dd027646e12b2e38c11fa30" class="btn-tech" target="_blank" rel="nofollow sponsored">Get Your Free Account</a>
-        
-        <div class="sub-text">Join 300,000+ entrepreneurs building trust. No credit card required.</div>
+<main>
+    <div class="meta">
+        <span>Engineering</span>
+        <span>//</span>
+        <span>Growth Architecture</span>
     </div>
 
-    <p>Building trust takes time, but using the right infrastructure cuts that time in half. Don't let bad design kill your great idea.</p>
-</article>
+    <h1>The Trust Protocol: Why Your Brand is Failing at Hello.</h1>
+    
+    <p class="lede">
+        There is a reason users bounce in 0.3 seconds. It’s not your product. It’s your infrastructure. Here is how to engineer "Digital Trust" using the correct stack.
+    </p>
+
+    <div style="height: 1px; width: 100%; background: var(--border-subtle); margin: 3rem 0;"></div>
+
+    <p>In high-stakes tech, we have a saying: <strong>"Amateurs worry about logos. Professionals worry about latency."</strong></p>
+    
+    <p>When a user lands on your site, they run a subconscious security audit. If your site feels fragmented, slow, or "stitched together," their brain flags you as a risk. You don't get a second chance.</p>
+
+    <h2>The Fragmentation Error</h2>
+    <p>Most founders build their stack like this:</p>
+    
+    <div class="code-block">
+        > WordPress (Site) <br>
+        > + Mailchimp (Email) <br>
+        > + ClickFunnels (Landing) <br>
+        > + Zapier (Glue) <br>
+        > = 400ms Latency & Data Leaks
+    </div>
+
+    <p>This is what we call "Spaghetti Architecture." It breaks. It’s expensive ($200+/mo). And visually, it’s incoherent. Users can smell the disconnect.</p>
+
+    <h2>The Unified Protocol</h2>
+    <p>To scale trust, you need a <strong>Unified Engine</strong>. You need your landing page, your email authentication (DKIM/SPF), and your automation logic to live on the same metal.</p>
+    
+    <p>After auditing the current market, there is only one platform that meets the engineering standard for "Solopreneur Scale" without the enterprise bloat.</p>
+
+    <div class="system-card">
+        <div class="label-pill">Recommended Stack</div>
+        
+        <div class="card-grid">
+            <div>
+                <div class="card-title">Systeme.io Core</div>
+                <p style="font-size: 0.9rem; margin-bottom: 0;">Full-stack infrastructure for high-growth brands.</p>
+                
+                <ul class="spec-list">
+                    <li><span class="icon">01.</span> <span>Zero-Latency Page Builder</span></li>
+                    <li><span class="icon">02.</span> <span>Integrated Email Automation</span></li>
+                    <li><span class="icon">03.</span> <span>Global CDN Deployment</span></li>
+                </ul>
+            </div>
+            
+            <div style="text-align: center;">
+                <div style="font-family: var(--font-mono); font-size: 2rem; font-weight: 700; color: white; margin-bottom: 0.5rem;">$0</div>
+                <div style="font-size: 0.8rem; color: var(--text-tertiary); margin-bottom: 1.5rem;">Per Month / Free Tier</div>
+                
+                <a href="https://kaloskalos15.systeme.io/proxy/request/55205061669cd1dd027646e12b2e38c11fa30" class="btn-deploy" target="_blank" rel="nofollow sponsored">
+                    Deploy Stack &rarr;
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <h2>Final Execution</h2>
+    <p>Trust is an engineering problem. If you solve it with design consistency and speed, conversion becomes a mathematical inevitability.</p>
+    
+    <p>Stop stitching tools together. Deploy the unified stack. Build.</p>
+
+</main>
 
 <footer>
-    <span class="footer-brand">Compte.app</span>
-    <p>Make It Count. &copy; 2026</p>
+    <div>COMPTE.APP // SYSTEM ARCHITECTURE</div>
+    <div style="margin-top: 1rem;">&copy; 2026. All Systems Nominal.</div>
 </footer>
 
 </body>
