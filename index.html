@@ -3,336 +3,276 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The $39 Anonymous LLC Strategy | Compte.app</title>
-    <meta name="description" content="The definitive guide for authors and entrepreneurs to secure privacy. Master your business accounts with Compte.">
+    <title>The Trust Stack: Engineering Credibility for New Brands | Compte.app</title>
+    <meta name="description" content="A founder's guide to building digital trust. The infrastructure, tools, and psychology that turn skeptical visitors into loyal users.">
     
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;700;800&display=swap" rel="stylesheet">
     
     <style>
-        /* === GLOBAL VARIABLES === */
+        /* === MODERN TECH VARIABLES === */
         :root {
-            --font-serif: 'Playfair Display', serif;
-            --font-sans: 'Inter', sans-serif;
+            --font-main: 'Plus Jakarta Sans', sans-serif;
             
-            --color-black: #111111;
-            --color-paper: #f9f9f9;
-            --color-white: #ffffff;
-            --color-accent: #D4AF37; /* "Swiss Bank" Gold */
-            --color-link: #2563eb;
-            --color-border: #e5e5e5;
+            /* Dark Theme Palette */
+            --bg-body: #0B0F19; /* Deepest Navy */
+            --bg-card: #151A2D;
+            --text-primary: #F1F5F9;
+            --text-secondary: #94A3B8;
+            --accent-glow: #38BDF8; /* Electric Blue */
+            --accent-solid: #0EA5E9;
+            --border-color: rgba(255, 255, 255, 0.08);
             
-            --max-w-article: 720px;
-            --max-w-header: 1100px;
+            --max-w: 720px;
         }
 
         /* === RESET & BASE === */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
-            background-color: var(--color-paper);
-            color: var(--color-black);
-            font-family: var(--font-sans);
-            line-height: 1.6;
-            font-size: 18px;
+            background-color: var(--bg-body);
+            color: var(--text-primary);
+            font-family: var(--font-main);
+            line-height: 1.8;
+            font-size: 1.125rem; /* 18px for readability */
             -webkit-font-smoothing: antialiased;
         }
 
-        /* === MAGZINE HEADER (The Compte Brand) === */
-        header {
-            background: var(--color-white);
-            border-bottom: 1px solid var(--color-border);
+        /* === NAVIGATION === */
+        nav {
             padding: 1.5rem 0;
+            border-bottom: 1px solid var(--border-color);
             position: sticky;
             top: 0;
+            background: rgba(11, 15, 25, 0.8);
+            backdrop-filter: blur(12px);
             z-index: 100;
         }
-        
-        .header-inner {
-            max-width: var(--max-w-header);
+        .nav-inner {
+            max-width: var(--max-w);
             margin: 0 auto;
             padding: 0 1.5rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-
-        .brand {
-            font-family: var(--font-sans);
-            font-weight: 900;
-            font-size: 1.5rem;
-            letter-spacing: -1px;
-            text-transform: lowercase;
+        .logo {
+            font-weight: 800;
+            font-size: 1.25rem;
+            letter-spacing: -0.5px;
+            color: white;
             text-decoration: none;
-            color: var(--color-black);
             display: flex;
             align-items: center;
             gap: 8px;
         }
-        .brand span { color: var(--color-accent); font-size: 2rem; line-height: 0; }
-        
-        /* Future-Proof Navigation */
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            font-size: 0.85rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+        .logo-dot {
+            width: 8px; height: 8px;
+            background: var(--accent-glow);
+            border-radius: 50%;
+            box-shadow: 0 0 12px var(--accent-glow);
         }
-        .nav-links a { color: #666; text-decoration: none; transition: color 0.2s; }
-        .nav-links a:hover { color: var(--color-black); }
-        .nav-links a.active { color: var(--color-black); border-bottom: 2px solid var(--color-accent); }
 
-        /* Mobile Nav Toggle */
-        .menu-toggle { display: none; cursor: pointer; font-size: 1.5rem; }
-
-        /* === ARTICLE LAYOUT === */
-        article {
-            max-width: var(--max-w-article);
-            margin: 4rem auto 6rem;
+        /* === ARTICLE HERO === */
+        header {
+            max-width: var(--max-w);
+            margin: 5rem auto 3rem;
             padding: 0 1.5rem;
         }
-
-        .category-tag {
-            font-family: var(--font-sans);
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            color: var(--color-accent);
-            margin-bottom: 1rem;
-            display: block;
+        
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 100px;
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--accent-glow);
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.5px;
+            border: 1px solid rgba(56, 189, 248, 0.2);
         }
 
         h1 {
-            font-family: var(--font-serif);
             font-size: 3.5rem;
             line-height: 1.1;
+            letter-spacing: -1.5px;
             margin-bottom: 1.5rem;
-            color: var(--color-black);
+            background: linear-gradient(to right, #fff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .lede {
-            font-family: var(--font-serif);
             font-size: 1.35rem;
-            line-height: 1.5;
-            color: #444;
-            font-style: italic;
-            margin-bottom: 2rem;
-            border-left: 3px solid var(--color-accent);
-            padding-left: 1.5rem;
+            color: var(--text-secondary);
+            font-weight: 300;
+            line-height: 1.6;
         }
 
-        /* HERO IMAGE FRAME */
-        .hero-frame {
-            width: 100%;
-            height: auto;
-            margin-bottom: 3rem;
-            border-radius: 4px;
-            overflow: hidden;
-            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.15);
+        /* === CONTENT BODY === */
+        article {
+            max-width: var(--max-w);
+            margin: 0 auto 6rem;
+            padding: 0 1.5rem;
         }
-        .hero-frame img { width: 100%; display: block; }
 
-        /* BODY TYPOGRAPHY */
         h2 {
-            font-family: var(--font-sans);
-            font-size: 1.75rem;
-            font-weight: 800;
-            letter-spacing: -0.5px;
-            margin-top: 3.5rem;
+            font-size: 2rem;
+            margin-top: 4rem;
             margin-bottom: 1rem;
+            letter-spacing: -0.5px;
+            color: white;
         }
         
-        p { margin-bottom: 1.5rem; color: #333; }
+        p { margin-bottom: 1.5rem; color: #cbd5e1; }
         
-        a.text-link {
-            color: var(--color-black);
-            text-decoration: underline;
-            text-decoration-color: var(--color-accent);
-            text-decoration-thickness: 2px;
-            text-underline-offset: 3px;
-        }
-        a.text-link:hover { background-color: #fff8e1; }
+        strong { color: white; font-weight: 600; }
 
-        /* === THE "SWISS BANK" TABLE === */
-        .table-container {
-            margin: 3rem -2rem;
-            background: white;
-            border: 1px solid var(--color-border);
-            border-radius: 8px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            overflow: hidden;
-        }
-        
-        .row {
-            display: grid;
-            grid-template-columns: 1.5fr 1fr 1fr;
-            border-bottom: 1px solid #f0f0f0;
-        }
-        .row:last-child { border-bottom: none; }
-        
-        .cell { padding: 1.25rem; font-size: 0.95rem; display: flex; align-items: center; }
-        .cell.head { font-weight: 600; color: #666; background: #fafafa; }
-        
-        /* The Winner Column */
-        .cell.winner { 
-            background: #fdfdfd; 
-            font-weight: 700; 
-            color: var(--color-black); 
+        /* === THE GLASSMORPHISM CARD (Systeme.io) === */
+        .feature-card {
+            background: linear-gradient(145deg, rgba(21, 26, 45, 0.6), rgba(21, 26, 45, 0.3));
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin: 3.5rem -1.5rem; /* Make it wider than text */
             position: relative;
-            border-left: 1px solid #eee;
+            overflow: hidden;
+            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.3);
         }
-        .cell.loser { color: #999; text-decoration: line-through; }
         
-        .badge {
+        /* The glowing accent top border */
+        .feature-card::after {
+            content: '';
             position: absolute;
-            top: 0; right: 0;
-            background: var(--color-accent);
-            color: white;
-            font-size: 0.6rem;
-            padding: 2px 6px;
-            text-transform: uppercase;
-            font-weight: 700;
+            top: 0; left: 0; width: 100%; height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-glow), transparent);
         }
 
-        /* === CTA SECTION === */
-        .cta-box {
-            background: var(--color-black);
+        .card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+        }
+        .tool-name { font-size: 1.5rem; font-weight: 700; color: white; letter-spacing: -0.5px; }
+        .rating { color: #FBBF24; font-size: 0.9rem; font-weight: 600; }
+
+        .checklist {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .checklist li {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .check-icon { color: var(--accent-glow); }
+
+        /* The Button */
+        .btn-tech {
+            display: block;
+            width: 100%;
+            padding: 1.1rem;
+            background: var(--accent-solid);
             color: white;
-            padding: 3rem;
             text-align: center;
-            border-radius: 4px;
-            margin: 4rem 0;
-        }
-        .cta-box h3 { font-family: var(--font-serif); font-size: 2rem; margin-bottom: 1rem; }
-        .btn-gold {
-            display: inline-block;
-            background: var(--color-accent);
-            color: white;
-            padding: 1rem 2.5rem;
-            font-weight: 700;
             text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-top: 1rem;
-            transition: all 0.2s;
+            font-weight: 700;
+            border-radius: 12px;
+            transition: all 0.2s ease;
+            box-shadow: 0 0 20px rgba(14, 165, 233, 0.3);
         }
-        .btn-gold:hover { background: #bfa34a; transform: translateY(-2px); }
+        .btn-tech:hover {
+            background: #38BDF8;
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(14, 165, 233, 0.5);
+        }
+        .sub-text {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.4);
+            text-align: center;
+            margin-top: 1rem;
+        }
 
-        /* === FOOTER (Expansion Ready) === */
+        /* === FOOTER === */
         footer {
-            background: white;
-            border-top: 1px solid var(--color-border);
+            border-top: 1px solid var(--border-color);
             padding: 4rem 0;
             text-align: center;
             font-size: 0.9rem;
-            color: #888;
+            color: #475569;
         }
-        .footer-nav { margin-bottom: 2rem; }
-        .footer-nav a { margin: 0 10px; color: #555; text-decoration: none; }
+        .footer-brand { color: white; font-weight: 700; margin-bottom: 0.5rem; display: block; }
 
-        /* RESPONSIVE */
-        @media (max-width: 768px) {
+        /* Mobile */
+        @media (max-width: 640px) {
             h1 { font-size: 2.5rem; }
-            .nav-links { display: none; } /* Hide menu on mobile for now */
-            .menu-toggle { display: block; }
-            .table-container { margin: 2rem 0; overflow-x: auto; }
-            .row { min-width: 500px; } /* Allows scroll on small phones */
+            .feature-card { margin: 3rem 0; padding: 1.5rem; }
+            .checklist { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-<header>
-    <div class="header-inner">
-        <a href="#" class="brand"><span>.</span>compte</a>
-        
-        <nav class="nav-links">
-            <a href="#" class="active">Business</a>
-            <a href="#">Marketing</a>
-            <a href="#">Betting</a>
-            <a href="#">Tools</a>
-        </nav>
-        
-        <div class="menu-toggle">☰</div>
+<nav>
+    <div class="nav-inner">
+        <a href="#" class="logo"><div class="logo-dot"></div>compte.app</a>
     </div>
+</nav>
+
+<header>
+    <span class="badge">Founder's Guide 2026</span>
+    <h1>Trust is the Only Currency.</h1>
+    <p class="lede">New tech brands don't fail because of bad code. They fail because they look like ghosts. Here is the engineering approach to building a "Trust Stack" that converts.</p>
 </header>
 
 <article>
-    <span class="category-tag">Strategy / Asset Protection</span>
-    
-    <h1>The $39 Anonymous Author: How to Publish Without Doxxing Yourself</h1>
-    
-    <div class="lede">
-        "If you don't control your privacy, you don't control your business. Here is the $39 loophole that keeps your home address off government records."
-    </div>
+    <p>You launch your product. The code is clean. The idea is brilliant. You post it online, and... <strong>silence.</strong></p>
+    <p>Why? Because in the digital world, "New" equals "Risky."</p>
+    <p>If your landing page is a generic template, or your emails come from a standard Gmail address, users assume you will be gone in a month. To survive, you need to look like a Series A startup from Day 1.</p>
 
-    <div class="hero-frame">
-        <img src="hero.jpg" alt="Privacy Shield Concept Art" width="1200" height="600">
-    </div>
-
-    <p>Writing a book is the dream. Having a disgruntled reader or internet troll show up at your front door is the nightmare.</p>
-    
-    <p>Most first-time authors make a critical mistake: they sign up for KDP (Kindle Direct Publishing) as a <em>Sole Proprietor</em>. It seems easiest, but in many states, this requires registering using your <strong>home address</strong>, which becomes a permanent public record.</p>
-
-    <h2>The "Registered Agent" Shield</h2>
-    <p>You don't need an expensive lawyer to protect yourself. You just need an LLC that uses a <strong>Registered Agent</strong>.</p>
-    <p>A Registered Agent is a legal service that lets you use <em>their</em> commercial address on all your official paperwork. When the state (or the public) asks where you are located, they see the agent's address, not your home.</p>
-
-    <h2>The Insider Secret: The $39 Deal</h2>
-    <p>The self-publishing industry is full of overpriced services trying to scare you into paying $200+ for basic business setups. Companies like LegalZoom charge high filing fees and then upsell you on privacy.</p>
-    
-    <p>However, <strong>Northwest Registered Agent</strong> is known among professionals as the "Privacy-First" option. They currently offer an unpublished deal to file your LLC for just $39.</p>
-
-    <div class="table-container">
-        <div class="row" style="background: #111; color: white;">
-            <div class="cell">Feature</div>
-            <div class="cell">LegalZoom</div>
-            <div class="cell winner" style="background: #222; color: white;">Northwest</div>
-        </div>
-        <div class="row">
-            <div class="cell head">Price to Start</div>
-            <div class="cell">$149 + Fees</div>
-            <div class="cell winner">$39 + Fees <span class="badge">Deal</span></div>
-        </div>
-        <div class="row">
-            <div class="cell head">Hides Address?</div>
-            <div class="cell loser">No ($249 extra)</div>
-            <div class="cell winner">YES (Included)</div>
-        </div>
-        <div class="row">
-            <div class="cell head">Data Policy</div>
-            <div class="cell loser">Sells Data</div>
-            <div class="cell winner">Strict Privacy</div>
-        </div>
-    </div>
-
-    <h2>How to Claim the Deal</h2>
-    <p>It is vital that you set this up correctly during checkout to ensure your address is actually hidden.</p>
-    
-    <ol style="margin-left: 1.5rem; margin-bottom: 2rem; font-family: var(--font-serif); font-size: 1.1rem; color: #444;">
-        <li style="margin-bottom: 1rem;"><strong>Click the button below</strong> to load the $39 offer.</li>
-        <li style="margin-bottom: 1rem;"><strong>Select Your State:</strong> Choose where you live.</li>
-        <li style="margin-bottom: 1rem;"><strong>The Shield:</strong> Ensure "Use our address" is selected.</li>
+    <h2>The 3 Pillars of Digital Trust</h2>
+    <p>I have audited hundreds of tech launches. The ones that succeed always have three infrastructure layers in place:</p>
+    <ol style="margin-left: 1.5rem; margin-bottom: 2rem; color: #cbd5e1;">
+        <li style="margin-bottom: 1rem;"><strong>A "Home Base" Funnel:</strong> Not just a website, but a guided journey that looks professionally designed and loads instantly.</li>
+        <li style="margin-bottom: 1rem;"><strong>Consistent Value (Email):</strong> You must own your audience. Social media algorithms are rented land.</li>
+        <li style="margin-bottom: 1rem;"><strong>Automated Onboarding:</strong> When a user signs up, they expect an immediate, branded welcome email.</li>
     </ol>
 
-    <div class="cta-box">
-        <h3>Secure Your Privacy Today</h3>
-        <p>Don't wait until you are doxxed to fix this.</p>
+    <h2>The Founder's Toolkit</h2>
+    <p>Most founders burn their budget on 5 different tools (Wix for site, Mailchimp for email, Teachable for courses). This costs $200/month and creates a fragmented "Trust Stack" because nothing connects properly.</p>
+    <p>The smarter play is to use an <strong>All-in-One Engine</strong>.</p>
+
+    <div class="feature-card">
+        <div class="card-header">
+            <span class="tool-name">Systeme.io</span>
+            <span class="rating">★★★★★ Editor's Choice</span>
+        </div>
+        <p style="color: #cbd5e1; font-size: 1rem;">The only tool that combines a website builder, email marketing, and automation in one dashboard. It allows a one-person team to operate with the polish of a corporation.</p>
         
-        <a href="YOUR_NORTHWEST_AFFILIATE_LINK_HERE" class="btn-gold" target="_blank" rel="nofollow sponsored">Get the $39 Privacy Package</a>
+        <ul class="checklist">
+            <li><span class="check-icon">✓</span> Free Forever Plan</li>
+            <li><span class="check-icon">✓</span> Enterprise-Grade Funnels</li>
+            <li><span class="check-icon">✓</span> Email Automation Included</li>
+            <li><span class="check-icon">✓</span> Instant Page Load Speeds</li>
+        </ul>
+
+        <a href="https://kaloskalos15.systeme.io/proxy/request/55205061669cd1dd027646e12b2e38c11fa30" class="btn-tech" target="_blank" rel="nofollow sponsored">Get Your Free Account</a>
+        
+        <div class="sub-text">Join 300,000+ entrepreneurs building trust. No credit card required.</div>
     </div>
 
+    <p>Building trust takes time, but using the right infrastructure cuts that time in half. Don't let bad design kill your great idea.</p>
 </article>
 
 <footer>
-    <div class="footer-nav">
-        <a href="#">About Compte</a>
-        <a href="#">Editorial Policy</a>
-        <a href="#">Contact</a>
-    </div>
-    <p>&copy; 2026 Compte.app. Make It Count.</p>
+    <span class="footer-brand">Compte.app</span>
+    <p>Make It Count. &copy; 2026</p>
 </footer>
 
 </body>
